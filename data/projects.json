@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Illume",
+    "tagline": "AI-Powered Codebase Onboarding Platform",
+    "shortDesc": "Topological learning engine and multi-source RAG pipeline for instantly understanding complex codebases.",
+    "stack": ["FastAPI", "Next.js", "Postgres", "SQLAlchemy", "pgvector", "Tree-sitter", "Celery", "React Force Graph"],
+    "github": "https://github.com/tejasnasa/illume",
+    "live": "https://illume.tejasnasa.me",
+    "img": "/illume.png",
+    "features": [
+      "Engineered a topological learning engine using FastAPI and Tree-sitter, executing Kahn’s algorithm across parsed AST dependency graphs to generate customized codebase reading paths for 500+ files.",
+      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 5,000+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries without hallucination.",
+      "Built an interactive Next.js 15 onboarding dashboard, visualizing 1,200+ node architectures in 3D while instantly identifying critical file bus-factors and streaming real-time ingestion telemetry via WebSockets.",
+      "Deployed the backend to a DigitalOcean droplet via a Docker + GitHub Actions CI/CD pipeline, with Nginx handling SSL termination and WebSocket upgrades."
+    ]
+  },
+  {
+    "title": "Nimbus",
+    "tagline": "Real Time Collaborative Workspace",
+    "shortDesc": "Monorepo-based workspace with real-time rich-text editing and infinite canvas collaboration.",
+    "stack": ["Node.js", "Socket.io", "Redis", "Postgres", "Yjs", "Next.js", "Excalidraw", "Express", "Prisma", "Turborepo"],
+    "github": "https://github.com/tejasnasa/nimbus",
+    "live": "https://nimbus.tejasnasa.me",
+    "img":"/canvas.webp",
+    "features": [
+      "Architected a horizontally scalable WebSocket microservice using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle 1,000+ state broadcasts/min with sub-millisecond latency.",
+      "Implemented a CRDT engine with Yjs, resolving multi-client document merges by securely broadcasting incremental binary state updates and eliminating 90% of state-syncing conflicts.",
+      "Built a monorepo-based collaborative workspace in Next.js supporting 5+ concurrent editors, orchestrating real-time rich-text (Milkdown), infinite canvas (Excalidraw), and an embedded AI assistant within a unified Turborepo pipeline."
+    ]
+  },
+  {
+    "title": "Echoes",
+    "tagline": "Social Media Platform",
+    "shortDesc": "High-performance React SPA backed by a scalable REST API with AI-driven content moderation.",
+    "stack": ["Express", "Node.js", "React", "Tanstack Router", "Postgres", "Drizzle", "Tailwind", "Tanstack Query"],
+    "github": "https://github.com/tejasnasa/echoes",
+    "live": "https://echoes.tejasnasa.me",
+    "img": "/post.png",
+    "features": [
+      "Engineered a scalable REST API using Express and Node.js, leveraging PostgreSQL alongside Drizzle ORM to deterministically resolve and return complex post records with optimized joins and indexing.",
+      "Built a secure JWT authentication pipeline with bcrypt hashing, enforcing strict boundary-layer validation via Zod across 35+ endpoints and automating content compliance via separate event-driven GPT-5 moderation triggers.",
+      "Developed a high-performance React SPA using TanStack Router, leveraging TanStack Query’s aggressive caching strategies to reduce redundant API calls by 50% and deliver instant UI feedback."
+    ]
+  }
+]
