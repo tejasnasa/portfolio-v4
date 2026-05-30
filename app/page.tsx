@@ -39,7 +39,7 @@ export default function Home() {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-100">
               Tejas Nasa
             </h1>
-            <p className="text-neutral-400 text-lg md:text-xl mt-2">
+            <p className="text-neutral-400 text-lg md:text-xl mt-2 ml-1">
               Full Stack Developer
             </p>
           </div>
