@@ -1,0 +1,15 @@
+[
+  {
+    "company": "Psync",
+    "role": "SWE Intern",
+    "period": "Jun. 2026 – Present",
+    "location": "Remote",
+    "logo": "/psync.png",
+    "stack": ["Astro", "FastAPI", "React.js", "Appwrite", "Tailwind CSS", "DaisyUI", "Pydantic"],
+    "bullets": [
+      "Migrated the authentication system from JWT-based auth to Appwrite’s cookie-based session model, rebuilding all 7 auth flows: login, signup, logout and Google/GitHub OAuth across the application.",
+      "Rebuilt the platform’s entire UI from scratch in Astro using React, Tailwind CSS, and DaisyUI, redesigning core dashboards and building 10+ chart types with Chart.js, including custom visualizations to deliver a more modern, consistent, and intuitive interface.",
+      "Building a repository-wide vectorization pipeline that ingests an entire codebase into embeddings to power autonomous issue resolution, applying RAG architecture patterns from prior work on Illume."
+    ]
+  }
+]

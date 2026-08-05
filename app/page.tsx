@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import EXPERIENCE from "@/data/experience.json";
 import PROJECTS from "@/data/projects.json";
 import SKILLS from "@/data/skills.json";
 import {
@@ -24,7 +25,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-2xl mx-auto px-6 pt-12 md:pt-24 selection:bg-neutral-800">
+    <main className="min-h-screen max-w-3xl mx-auto px-6 pt-12 md:pt-24 selection:bg-neutral-800">
       <Section delay={0.1}>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
           <div className="w-24 h-24 rounded-full bg-neutral-800 overflow-hidden relative shrink-0 flex items-center justify-center text-neutral-500 text-2xl font-semibold shadow-inner">
@@ -91,6 +92,65 @@ export default function Home() {
           >
             <Phone className="w-4 h-4" /> +91 9599875310
           </a>
+        </div>
+      </Section>
+
+      <Section delay={0.15} id="experience">
+        <h2 className="text-xl font-semibold mb-8 text-neutral-100">
+          Experience
+        </h2>
+        <div className="space-y-8">
+          {EXPERIENCE.map((exp) => (
+            <div
+              key={`${exp.company}-${exp.role}`}
+              className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-neutral-900/20 hover:bg-neutral-900/40 border border-neutral-800/30 hover:border-neutral-700/40 transition-all duration-300 backdrop-blur-md"
+            >
+              <div className="w-12 h-12 rounded-xl p-2 overflow-hidden relative shrink-0 flex items-center justify-center">
+                <Image
+                  src={exp.logo}
+                  alt={`${exp.company} Logo`}
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                  <div>
+                    <h3 className="font-semibold text-neutral-200 text-lg group-hover:text-white transition-colors">
+                      {exp.role}
+                    </h3>
+                    <p className="text-neutral-400 text-sm mt-0.5">
+                      {exp.company} • {exp.location}
+                    </p>
+                  </div>
+                  <span className="text-xs font-medium text-neutral-500 bg-neutral-950/30 px-3 py-1 rounded-full border border-neutral-800/50 self-start md:self-center">
+                    {exp.period}
+                  </span>
+                </div>
+                <ul className="list-disc pl-5 space-y-2 text-neutral-400 leading-relaxed text-sm">
+                  {exp.bullets.map((bullet, idx) => (
+                    <li
+                      key={idx}
+                      className="hover:text-neutral-300 transition-colors"
+                    >
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {exp.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -253,7 +313,7 @@ export default function Home() {
         <div className="space-y-8">
           <div className="group flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
             <div className="text-sm text-neutral-500 md:w-32 shrink-0">
-              2023 — 2027
+              2023 - 2027
             </div>
             <div>
               <h3 className="font-medium text-neutral-200">
