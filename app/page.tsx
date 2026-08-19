@@ -158,44 +158,50 @@ export default function Home() {
         <h2 className="text-xl font-semibold mb-8 text-neutral-100">
           Projects
         </h2>
-        <div className="grid grid-cols-1 gap-8">
-          {PROJECTS.map((project) => (
-            <div key={project.title} className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {PROJECTS.map((project, index) => (
+            <div
+              key={project.title}
+              className={`relative flex flex-col ${index < 2 ? "md:col-span-2" : ""}`}
+            >
               <Dialog>
                 <DialogTrigger asChild>
-                  <button className="group text-left flex flex-col justify-between p-4 md:p-6 rounded-2xl bg-neutral-900/20 hover:bg-neutral-900/60 border border-neutral-800/30 hover:border-neutral-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-neutral-900/50 cursor-pointer w-full backdrop-blur-md">
-                    <div className="w-full aspect-video bg-neutral-950/50 rounded-xl mb-6 border border-neutral-800/30 overflow-hidden relative">
-                      <Image
-                        src={project.img}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover"
-                      />
-                    </div>
+                  <button className={`group text-left flex flex-col justify-between ${index < 2 ? "p-4 md:p-6" : "p-2 md:p-4"}  rounded-2xl bg-neutral-900/20 hover:bg-neutral-900/60 border border-neutral-800/30 hover:border-neutral-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-neutral-900/50 cursor-pointer w-full h-full backdrop-blur-md`}>
+                    <div className="flex flex-col flex-1 w-full">
+                      <div className="w-full aspect-video bg-neutral-950/50 rounded-xl mb-6 border border-neutral-800/30 overflow-hidden relative">
+                        <Image
+                          src={project.img}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
 
-                    <div>
-                      <h3 className="font-medium text-xl text-neutral-200 group-hover:text-white flex items-center gap-2 transition-colors">
-                        {project.title}
-                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                      </h3>
-                      <p className="text-sm text-neutral-400 mt-2 font-medium tracking-wide uppercase text-[10px]">
-                        {project.tagline}
-                      </p>
-                      <p className="text-sm text-neutral-500 mt-3 leading-relaxed">
-                        {project.shortDesc}
-                      </p>
+                      <div>
+                        <h3 className="font-medium text-xl text-neutral-200 group-hover:text-white flex items-center gap-2 transition-colors">
+                          {project.title}
+                          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </h3>
+                        <p className="text-sm text-neutral-400 mt-2 font-medium tracking-wide uppercase text-[10px]">
+                          {project.tagline}
+                        </p>
+                        <p className={`${index < 2 ? "text-sm" : "text-xs"} text-neutral-500 mt-3 leading-relaxed`}>
+                          {project.shortDesc}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-6">
-                      {project.stack.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.stack.length > 4 && (
+                    <div className="flex flex-wrap gap-2 mt-6 pr-20">
+                      {index < 2 &&
+                        project.stack.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      {index < 2 && project.stack.length > 4 && (
                         <span className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-500">
                           +{project.stack.length - 4}
                         </span>
@@ -220,14 +226,16 @@ export default function Home() {
                       >
                         <Code className="w-4 h-4" /> View Source
                       </a>
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" /> Live Demo
-                      </a>
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" /> Live Demo
+                        </a>
+                      )}
                     </div>
                   </DialogHeader>
                   <div className="space-y-6 text-neutral-300 text-sm">
@@ -270,14 +278,16 @@ export default function Home() {
                 </DialogContent>
               </Dialog>
               <div className="flex gap-3 absolute bottom-3 right-4">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-neutral-500 hover:text-neutral-300 flex items-center gap-1"
-                >
-                  <ExternalLink className="w-3 h-3" /> Live
-                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-500 hover:text-neutral-300 flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" /> Live
+                  </a>
+                )}
                 <a
                   href={project.github}
                   target="_blank"

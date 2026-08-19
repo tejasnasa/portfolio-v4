@@ -3,29 +3,195 @@
     "title": "Illume",
     "tagline": "AI-Powered Codebase Onboarding Platform",
     "shortDesc": "Topological learning engine and multi-source RAG pipeline for instantly understanding complex codebases.",
-    "stack": ["FastAPI", "Next.js", "Postgres", "SQLAlchemy", "pgvector", "Tree-sitter", "Celery", "React Force Graph"],
+    "stack": [
+      "FastAPI",
+      "Next.js",
+      "Postgres",
+      "SQLAlchemy",
+      "pgvector",
+      "Tree-sitter",
+      "Celery",
+      "React Force Graph"
+    ],
     "github": "https://github.com/tejasnasa/illume",
     "live": "https://illume.tejasnasa.me",
     "img": "/illume.png",
     "features": [
       "Engineered a topological learning engine using FastAPI and Tree-sitter, executing Kahn’s algorithm across parsed AST dependency graphs to generate customized codebase reading paths for 500+ files.",
-      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 5,000+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries without hallucination.",
-      "Built an interactive Next.js 15 onboarding dashboard, visualizing 1,200+ node architectures in 3D while instantly identifying critical file bus-factors and streaming real-time ingestion telemetry via WebSockets.",
-      "Deployed the backend to a DigitalOcean droplet via a Docker + GitHub Actions CI/CD pipeline, with Nginx handling SSL termination and WebSocket upgrades."
+      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 5,000+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries with traceable source citations.",
+      "Built an interactive Next.js 15 onboarding dashboard, visualizing 1,000+ node architectures in 3D while instantly identifying critical file bus-factors and streaming real-time ingestion telemetry via WebSockets.",
+      "Deployed the backend to an Azure VM via a Docker + GitHub Actions CI/CD pipeline, with Nginx as a reverse proxy, handling SSL termination and WebSocket upgrades."
     ]
   },
   {
     "title": "Nimbus",
     "tagline": "Real Time Collaborative Workspace",
     "shortDesc": "Monorepo-based workspace with real-time rich-text editing and infinite canvas collaboration.",
-    "stack": ["Node.js", "Socket.io", "Redis", "Postgres", "Yjs", "Next.js", "Excalidraw", "Express", "Prisma", "Turborepo"],
+    "stack": [
+      "Node.js",
+      "Socket.io",
+      "Redis",
+      "Postgres",
+      "WebRTC",
+      "Yjs",
+      "Next.js",
+      "Excalidraw",
+      "Express",
+      "Prisma",
+      "Turborepo"
+    ],
     "github": "https://github.com/tejasnasa/nimbus",
     "live": "https://nimbus.tejasnasa.me",
-    "img":"/canvas.webp",
+    "img": "/canvas.webp",
     "features": [
-      "Architected a horizontally scalable WebSocket microservice using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle 1,000+ state broadcasts/min with sub-millisecond latency.",
-      "Implemented a CRDT engine with Yjs, resolving multi-client document merges by securely broadcasting incremental binary state updates and eliminating 90% of state-syncing conflicts.",
-      "Built a monorepo-based collaborative workspace in Next.js supporting 5+ concurrent editors, orchestrating real-time rich-text (Milkdown), infinite canvas (Excalidraw), and an embedded AI assistant within a unified Turborepo pipeline."
+      "Architected a horizontally scalable WebSocket microservice using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle 1,000+ state broadcasts/min with low-latency delivery.",
+      "Implemented a CRDT engine with Yjs, resolving multi-client merges via incremental binary state updates and eliminating 90% of state-syncing conflicts across rich-text (Milkdown) and canvas (Excalidraw) surfaces.",
+      "Built an AI agent that generates Markdown documents and Excalidraw whiteboards from prompts using Qwen and GPT-OSS, streaming content live into the shared canvas for all collaborators.",
+      "Engineered a monorepo-based workspace in Next.js supporting 5+ concurrent editors, with native WebRTC voice rooms (self-hosted Coturn relay) and Better-Auth access control within a unified Turborepo pipeline."
+    ]
+  },
+  {
+    "title": "Recall",
+    "tagline": "AI-Powered Second Brain for Coursework",
+    "shortDesc": "RAG-based study platform that turns uploaded coursework into a queryable knowledge base with cited answers, auto-generated quizzes, and spaced repetition.",
+    "stack": [
+      "Next.js 15",
+      "FastAPI",
+      "Supabase",
+      "PostgreSQL",
+      "pgvector",
+      "Celery",
+      "Redis",
+      "LangChain",
+      "OpenAI API"
+    ],
+    "github": "https://github.com/tejasnasa/recall",
+    "live": "https://recall-it-all.vercel.app/",
+    "img": "/recall.png",
+    "features": [
+      "Designed a RAG pipeline using Unstructured.io for layout-aware PDF/PPTX/DOCX parsing, chunking content into 512-token segments with page-level metadata before embedding via OpenAI's text-embedding-3-small into pgvector with an HNSW index.",
+      "Architected a hybrid retrieval flow combining pgvector cosine similarity search with Postgres full-text search, merged via Reciprocal Rank Fusion, to return citation-traceable answers down to the exact source page.",
+      "Built an SM-2 spaced repetition engine and auto quiz generator (MCQ, short-answer, true/false) with NLP-based semantic scoring for grading open-ended responses.",
+      "Set up a FastAPI + Celery + Redis backend on Docker Compose for async document ingestion and quiz generation, with Supabase handling auth, Postgres, and file storage, deployed via GitHub Actions CI/CD.",
+      "Built the Next.js 15 frontend with a streaming chat interface, in-app PDF viewer with citation highlighting, and Recharts-based study analytics dashboard."
+    ]
+  },
+  {
+    "title": "Echoes",
+    "tagline": "Thread-Based Social Media Platform",
+    "shortDesc": "A blazing-fast, real-time social platform for immersive threaded conversations, built on React 19 and the TanStack ecosystem.",
+    "stack": [
+      "React 19",
+      "Vite",
+      "TanStack Router",
+      "TanStack Query",
+      "Node.js",
+      "Express",
+      "Drizzle ORM",
+      "Zod",
+      "JWT"
+    ],
+    "github": "https://github.com/tejasnasa/echoes",
+    "live": "https://echoes.tejasnasa.me",
+    "img": "/post.png",
+    "features": [
+      "Architected a Node.js/Express backend with Drizzle ORM exposing 35+ REST endpoints, secured end-to-end with JWT-based authentication.",
+      "Built a deeply nested threaded-reply system supporting likes and bookmarks, with infinite scroll sustaining 10,000+ interactions without pagination breaks.",
+      "Reduced redundant server round-trips by 60% using TanStack Query's caching and background synchronization for near-instant UI updates.",
+      "Integrated an AI-powered content moderation engine interfacing with a GPT-5 pipeline to validate and act on flagged reports directly from the report modal.",
+      "Enforced type-safe form handling and validation across all user flows using Zod and React Hook Form."
+    ]
+  },
+  {
+    "title": "Ada",
+    "tagline": "Online Compiler for Competitive Programmers",
+    "shortDesc": "A streamlined online code editor with preloaded boilerplate and macros built to speed up competitive programming workflows.",
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Monaco Editor",
+      "shadcn/ui",
+      "Tailwind CSS",
+      "Zustand",
+      "Axios"
+    ],
+    "github": "https://github.com/tejasnasa/ada",
+    "live": "https://codewithada.vercel.app",
+    "img": "/ada.png",
+    "features": [
+      "Deprecated.",
+      "Built a fully responsive online compiler using Monaco Editor, preloading language-specific boilerplate across 5 coding formats so users can jump straight into problem-specific logic.",
+      "Implemented predefined coding shortcuts and macros to reduce keystroke overhead during timed competitive programming rounds.",
+      "Designed a no-login, instant-execution flow with one-click code copy for direct submission to judges.",
+      "Added 10 customizable editor themes and adjustable font sizing, with state persisted client-side via Zustand."
+    ]
+  },
+  {
+    "title": "Budgex",
+    "tagline": "Smart Personal Finance Tracker",
+    "shortDesc": "A full-stack personal finance manager with AI-generated spending insights, savings goals, and real-time budget analytics.",
+    "stack": [
+      "Next.js 15",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Zod",
+      "Recharts",
+      "OpenAI GPT",
+      "Cron Jobs"
+    ],
+    "github": "https://github.com/tejasnasa/budgex",
+    "live": "https://budgex.vercel.app",
+    "img": "/budgex.png",
+    "features": [
+      "Designed a relational schema in Prisma/PostgreSQL modeling users, categorized expenses, income, and savings goals with cascading deletes on goal-contribution records.",
+      "Built a real-time dashboard with Recharts visualizing weekly spend trends, monthly distribution, and category-wise breakdowns, backed by server-side paginated transaction history across 500+ records.",
+      "Engineered a GPT-driven daily notification engine that analyzes historical spending by category and day-of-week to surface non-repetitive, behaviorally-aware nudges via a scheduled cron job.",
+      "Implemented secure authentication with bcrypt password hashing and JWT session management via `jose`, enforced through Next.js middleware route protection.",
+      "Built a savings goals module with target tracking, visual progress bars, and a full contribution history per goal."
+    ]
+  },
+  {
+    "title": "FloatChat",
+    "tagline": "Conversational RAG Interface for Ocean (ARGO Float) Data",
+    "shortDesc": "A RAG-powered chat interface built for SIH 2025, letting users query oceanographic ARGO float datasets in natural language.",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "RAG Pipeline",
+      "Vector Search",
+      "Pandas"
+    ],
+    "github": "https://github.com/tejasnasa/floatchat",
+    "live": null,
+    "img": "/floatchat.png",
+    "features": [
+      "Built as part of Team Astra for Smart India Hackathon 2025, developing a natural-language chat interface over structured ARGO ocean float datasets.",
+      "Engineered a data ingestion pipeline converting raw CSV oceanographic records into structured JSON for downstream retrieval.",
+      "Implemented a RAG pipeline over the ingested dataset, enabling the chat interface to answer natural-language queries grounded in the underlying float data.",
+      "Contributed to a client/backend split architecture separating the conversational frontend from the ingestion and query-serving backend."
+    ]
+  },
+  {
+    "title": "Eidetic",
+    "tagline": "Full-Stack Minigames Platform",
+    "shortDesc": "A full-stack minigames website with persistent user data and type-safe validation throughout.",
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Zod",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/tejasnasa/eidetic",
+    "live": "https://eidetic-play.vercel.app",
+    "img": "/eidetic.png",
+    "features": [
+      "Built a full-stack minigames platform on Next.js with a PostgreSQL database managed through Prisma ORM.",
+      "Enforced end-to-end type safety across the stack using TypeScript and Zod schema validation.",
+      "Designed and styled a responsive UI with Tailwind CSS across multiple game modules."
     ]
   }
 ]
