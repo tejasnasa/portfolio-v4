@@ -11,15 +11,17 @@
       "pgvector",
       "Tree-sitter",
       "Celery",
+      "React Native",
+      "Expo",
       "React Force Graph"
     ],
     "github": "https://github.com/tejasnasa/illume",
     "live": "https://illume.tejasnasa.me",
-    "img": "/illume.png",
+    "img": "/illume.webp",
     "features": [
-      "Engineered a topological learning engine using FastAPI and Tree-sitter, executing Kahn’s algorithm across parsed AST dependency graphs to generate customized codebase reading paths for 500+ files.",
-      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 5,000+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries with traceable source citations.",
-      "Built an interactive Next.js 15 onboarding dashboard, visualizing 1,000+ node architectures in 3D while instantly identifying critical file bus-factors and streaming real-time ingestion telemetry via WebSockets.",
+      "Engineered a topological learning engine using FastAPI and Tree-sitter, executing Kahn’s algorithm across parsed AST dependency graphs to generate customized codebase reading paths for 100 files.",
+      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 500+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries with traceable source citations.",
+      "Built the onboarding client as a Next.js 16 dashboard and a React Native app on Expo at feature parity, with a 3D dependency graph sized by lines of code and coloured by criticality tier, a file and symbol toggle, a reading-order tour, a bus-factor panel and live ingestion telemetry over WebSockets.",
       "Deployed the backend to an Azure VM via a Docker + GitHub Actions CI/CD pipeline, with Nginx as a reverse proxy, handling SSL termination and WebSocket upgrades."
     ]
   },
@@ -44,10 +46,10 @@
     "live": "https://nimbus.tejasnasa.me",
     "img": "/canvas.webp",
     "features": [
-      "Architected a horizontally scalable WebSocket microservice using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle 1,000+ state broadcasts/min with low-latency delivery.",
+      "Architected a horizontally scalable WebSocket service using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle multiple state broadcasts with low-latency delivery.",
       "Implemented a CRDT engine with Yjs, resolving multi-client merges via incremental binary state updates and eliminating 90% of state-syncing conflicts across rich-text (Milkdown) and canvas (Excalidraw) surfaces.",
-      "Built an AI agent that generates Markdown documents and Excalidraw whiteboards from prompts using Qwen and GPT-OSS, streaming content live into the shared canvas for all collaborators.",
-      "Engineered a monorepo-based workspace in Next.js supporting 5+ concurrent editors, with native WebRTC voice rooms (self-hosted Coturn relay) and Better-Auth access control within a unified Turborepo pipeline."
+      "Built an AI agent that turns prompts into Markdown documents and Excalidraw whiteboards, on a 4-provider LLM registry (OpenAI, Groq, DeepSeek, OpenRouter), streaming progress into the workspace.",
+      "Engineered a monorepo-based workspace in Next.js supporting 10+ concurrent editors, with native WebRTC voice rooms (self-hosted Coturn relay) and Better-Auth access control within a unified Turborepo pipeline."
     ]
   },
   {
@@ -67,7 +69,7 @@
     ],
     "github": "https://github.com/tejasnasa/recall",
     "live": "https://recall-it-all.vercel.app/",
-    "img": "/recall.png",
+    "img": "/recall.webp",
     "features": [
       "Designed a RAG pipeline using Unstructured.io for layout-aware PDF/PPTX/DOCX parsing, chunking content into 512-token segments with page-level metadata before embedding via OpenAI's text-embedding-3-small into pgvector with an HNSW index.",
       "Architected a hybrid retrieval flow combining pgvector cosine similarity search with Postgres full-text search, merged via Reciprocal Rank Fusion, to return citation-traceable answers down to the exact source page.",
@@ -93,7 +95,7 @@
     ],
     "github": "https://github.com/tejasnasa/echoes",
     "live": "https://echoes.tejasnasa.me",
-    "img": "/post.png",
+    "img": "/post.webp",
     "features": [
       "Architected a Node.js/Express backend with Drizzle ORM exposing 35+ REST endpoints, secured end-to-end with JWT-based authentication.",
       "Built a deeply nested threaded-reply system supporting likes and bookmarks, with infinite scroll sustaining 10,000+ interactions without pagination breaks.",
@@ -117,7 +119,7 @@
     ],
     "github": "https://github.com/tejasnasa/ada",
     "live": "https://codewithada.vercel.app",
-    "img": "/ada.png",
+    "img": "/ada.webp",
     "features": [
       "Deprecated.",
       "Built a fully responsive online compiler using Monaco Editor, preloading language-specific boilerplate across 5 coding formats so users can jump straight into problem-specific logic.",
@@ -142,7 +144,7 @@
     ],
     "github": "https://github.com/tejasnasa/budgex",
     "live": "https://budgex.vercel.app",
-    "img": "/budgex.png",
+    "img": "/budgex.webp",
     "features": [
       "Designed a relational schema in Prisma/PostgreSQL modeling users, categorized expenses, income, and savings goals with cascading deletes on goal-contribution records.",
       "Built a real-time dashboard with Recharts visualizing weekly spend trends, monthly distribution, and category-wise breakdowns, backed by server-side paginated transaction history across 500+ records.",
@@ -165,7 +167,7 @@
     ],
     "github": "https://github.com/tejasnasa/floatchat",
     "live": null,
-    "img": "/floatchat.png",
+    "img": "/floatchat.webp",
     "features": [
       "Built as part of Team Astra for Smart India Hackathon 2025, developing a natural-language chat interface over structured ARGO ocean float datasets.",
       "Engineered a data ingestion pipeline converting raw CSV oceanographic records into structured JSON for downstream retrieval.",
@@ -187,7 +189,7 @@
     ],
     "github": "https://github.com/tejasnasa/eidetic",
     "live": "https://eidetic-play.vercel.app",
-    "img": "/eidetic.png",
+    "img": "/eidetic.webp",
     "features": [
       "Built a full-stack minigames platform on Next.js with a PostgreSQL database managed through Prisma ORM.",
       "Enforced end-to-end type safety across the stack using TypeScript and Zod schema validation.",

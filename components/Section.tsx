@@ -9,9 +9,24 @@ interface SectionProps {
   className?: string;
   id?: string;
   delay?: number;
+  reveal?: boolean;
 }
 
-export function Section({ children, className, id, delay = 0 }: SectionProps) {
+export function Section({
+  children,
+  className,
+  id,
+  delay = 0,
+  reveal = true,
+}: SectionProps) {
+  if (!reveal) {
+    return (
+      <section id={id} className={cn("py-12 md:py-16", className)}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id={id}

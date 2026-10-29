@@ -1,6 +1,7 @@
 "use client";
 
 import { Section } from "@/components/Section";
+import { motion } from "framer-motion";
 import {
   Dialog,
   DialogContent,
@@ -34,6 +35,7 @@ export default function Home() {
               alt="Tejas Nasa"
               width={96}
               height={96}
+              priority
             />
           </div>
           <div>
@@ -59,6 +61,7 @@ export default function Home() {
             href="/tejas_nasa_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View Tejas Nasa resume PDF"
             className="flex items-center gap-2 px-6 py-2.5 bg-neutral-100 text-neutral-950 hover:bg-white rounded-full font-medium text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-neutral-100/10"
           >
             <Download className="w-4 h-4" /> View Resume
@@ -68,6 +71,7 @@ export default function Home() {
             href="https://github.com/tejasnasa"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Tejas Nasa on GitHub"
             className="flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
           >
             <Code className="w-4 h-4" /> GitHub
@@ -76,18 +80,21 @@ export default function Home() {
             href="https://linkedin.com/in/tejasnasa"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Tejas Nasa on LinkedIn"
             className="flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
           >
             <Briefcase className="w-4 h-4" /> LinkedIn
           </a>
           <a
             href="mailto:tejasnasa1908@gmail.com"
+            aria-label="Email Tejas Nasa"
             className="flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
           >
             <Mail className="w-4 h-4" /> Email
           </a>
           <a
             href="tel:+919599875310"
+            aria-label="Call Tejas Nasa"
             className="flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
           >
             <Phone className="w-4 h-4" /> +91 9599875310
@@ -103,7 +110,7 @@ export default function Home() {
           {EXPERIENCE.map((exp) => (
             <div
               key={`${exp.company}-${exp.role}`}
-              className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-neutral-900/20 hover:bg-neutral-900/40 border border-neutral-800/30 hover:border-neutral-700/40 transition-all duration-300 backdrop-blur-md"
+              className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-[#0f0f0f] border border-neutral-800/30 hover:border-neutral-700/40 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl p-2 overflow-hidden relative shrink-0 flex items-center justify-center">
                 <Image
@@ -124,7 +131,7 @@ export default function Home() {
                       {exp.company} • {exp.location}
                     </p>
                   </div>
-                  <span className="text-xs font-medium text-neutral-500 bg-neutral-950/30 px-3 py-1 rounded-full border border-neutral-800/50 self-start md:self-center">
+                  <span className="text-xs font-medium text-neutral-500 bg-[#0a0a0a] px-3 py-1 rounded-full border border-neutral-800/50 self-start md:self-center">
                     {exp.period}
                   </span>
                 </div>
@@ -142,7 +149,7 @@ export default function Home() {
                   {exp.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
+                      className="px-2.5 py-1 bg-[#0a0a0a] border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
                     >
                       {tech}
                     </span>
@@ -154,24 +161,38 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section delay={0.2} id="projects">
-        <h2 className="text-xl font-semibold mb-8 text-neutral-100">
+      <Section delay={0.2} id="projects" reveal={false}>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-xl font-semibold mb-8 text-neutral-100"
+        >
           Projects
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROJECTS.map((project, index) => (
-            <div
+            <motion.div
               key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.5,
+                delay: (index % 2) * 0.06,
+                ease: "easeOut",
+              }}
               className={`relative flex flex-col ${index < 2 ? "md:col-span-2" : ""}`}
             >
               <Dialog>
                 <DialogTrigger asChild>
-                  <button className={`group text-left flex flex-col justify-between ${index < 2 ? "p-4 md:p-6" : "p-2 md:p-4"}  rounded-2xl bg-neutral-900/20 hover:bg-neutral-900/60 border border-neutral-800/30 hover:border-neutral-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-neutral-900/50 cursor-pointer w-full h-full backdrop-blur-md`}>
+                  <button className={`group text-left flex flex-col justify-between ${index < 2 ? "p-4 md:p-6" : "p-2 md:p-4"}  rounded-2xl bg-[#0f0f0f] border border-neutral-800/30 hover:border-neutral-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-neutral-900/50 cursor-pointer w-full h-full`}>
                     <div className="flex flex-col flex-1 w-full">
-                      <div className="w-full aspect-video bg-neutral-950/50 rounded-xl mb-6 border border-neutral-800/30 overflow-hidden relative">
+                      <div className="w-full aspect-video bg-[#0a0a0a] rounded-xl mb-6 border border-neutral-800/30 overflow-hidden relative">
                         <Image
                           src={project.img}
-                          alt={project.title}
+                          alt={`${project.title}, ${project.tagline}`}
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover"
@@ -196,13 +217,13 @@ export default function Home() {
                         project.stack.slice(0, 4).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
+                            className="px-2.5 py-1 bg-[#0a0a0a] border border-neutral-800/50 rounded-md text-xs text-neutral-400 group-hover:border-neutral-700/50 transition-colors"
                           >
                             {tech}
                           </span>
                         ))}
                       {index < 2 && project.stack.length > 4 && (
-                        <span className="px-2.5 py-1 bg-neutral-950/50 border border-neutral-800/50 rounded-md text-xs text-neutral-500">
+                        <span className="px-2.5 py-1 bg-[#0a0a0a] border border-neutral-800/50 rounded-md text-xs text-neutral-500">
                           +{project.stack.length - 4}
                         </span>
                       )}
@@ -222,6 +243,7 @@ export default function Home() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${project.title} source code on GitHub`}
                         className="flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition-colors"
                       >
                         <Code className="w-4 h-4" /> View Source
@@ -231,6 +253,7 @@ export default function Home() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`${project.title} live demo`}
                           className="flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition-colors"
                         >
                           <ExternalLink className="w-4 h-4" /> Live Demo
@@ -239,10 +262,10 @@ export default function Home() {
                     </div>
                   </DialogHeader>
                   <div className="space-y-6 text-neutral-300 text-sm">
-                    <div className="w-full aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 relative">
+                    <div className="w-full aspect-video bg-[#0a0a0a] rounded-lg overflow-hidden border border-neutral-800 relative">
                       <Image
                         src={project.img}
-                        alt={`${project.title} screenshot`}
+                        alt={`${project.title}, ${project.tagline}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover"
@@ -267,7 +290,7 @@ export default function Home() {
                         {project.stack.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 bg-neutral-900 border border-neutral-800 rounded-md text-xs text-neutral-300"
+                            className="px-2.5 py-1 bg-[#0a0a0a] border border-neutral-800 rounded-md text-xs text-neutral-300"
                           >
                             {tech}
                           </span>
@@ -283,6 +306,7 @@ export default function Home() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${project.title} live demo`}
                     className="text-xs text-neutral-500 hover:text-neutral-300 flex items-center gap-1"
                   >
                     <ExternalLink className="w-3 h-3" /> Live
@@ -292,12 +316,13 @@ export default function Home() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${project.title} source code on GitHub`}
                   className="text-xs text-neutral-500 hover:text-neutral-300 flex items-center gap-1"
                 >
                   <Code className="w-3 h-3" /> GitHub
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Section>
@@ -308,7 +333,7 @@ export default function Home() {
           {SKILLS.map((tech) => (
             <div
               key={tech}
-              className="px-3 py-1.5 bg-neutral-900/20 border border-neutral-800/30 rounded-full text-sm text-neutral-400 hover:text-neutral-950 hover:bg-neutral-200 hover:border-neutral-200 transition-all duration-300 cursor-default backdrop-blur-md hover:scale-105"
+              className="px-3 py-1.5 bg-[#0f0f0f] border border-neutral-800/30 rounded-full text-sm text-neutral-400 hover:text-neutral-950 hover:bg-neutral-200 hover:border-neutral-200 transition-all duration-300 cursor-default hover:scale-105"
             >
               {tech}
             </div>
@@ -332,6 +357,7 @@ export default function Home() {
               <p className="text-neutral-400 text-sm mt-1">
                 Maharaja Surajmal Institute of Technology, Delhi
               </p>
+              <p className="text-neutral-500 text-sm mt-1">CGPA: 8.4/10</p>
             </div>
           </div>
         </div>

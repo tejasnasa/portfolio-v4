@@ -2,14 +2,15 @@
   {
     "company": "Psync",
     "role": "SWE Intern",
-    "period": "Jun. 2026 – Present",
+    "period": "Jun. 2026 – Sep. 2026",
     "location": "Remote",
     "logo": "/psync.png",
-    "stack": ["Astro", "FastAPI", "React.js", "Appwrite", "Tailwind CSS", "DaisyUI", "Pydantic"],
+    "stack": ["Astro", "FastAPI", "React.js", "Appwrite", "Tailwind CSS", "Tree-Sitter", "Redis", "Expo"],
     "bullets": [
-      "Migrated the authentication system from JWT-based auth to Appwrite’s cookie-based session model, rebuilding all 7 auth flows: login, signup, logout and Google/GitHub OAuth across the application.",
-      "Rebuilt the platform’s entire UI from scratch in Astro using React, Tailwind CSS, and DaisyUI, redesigning core dashboards and building 10+ chart types with Chart.js, including custom visualizations to deliver a more modern, consistent, and intuitive interface.",
-      "Building a repository-wide vectorization pipeline that ingests an entire codebase into embeddings to power autonomous issue resolution, applying RAG architecture patterns from prior work on Illume."
+      "Migrated the authentication system from a legacy JWT path to Appwrite’s session-cookie model, covering OAuth start, callback, redirect, error handling and popup re-authentication flow for sensitive operations.",
+      "Created a repo-aware RAG pipeline for autonomous issue resolution: Tree-sitter chunking at function/class granularity, OpenAI embeddings stored in per-user Redis, and KNN-grounded LLM plans that reference real files/functions, with incremental re-indexing via a 6h drift ticker that re-embeds only changed files.",
+      "Built a dual-recipient invite system on Appwrite, pre-provisioning shadow accounts for new invitees to enable email delivery, while preserving backward compatibility with the legacy invite flow.",
+      "Rebuilt the platform’s entire UI from scratch in Astro using React, Tailwind CSS, and DaisyUI, redesigning core dashboards and building 10+ chart types with Chart.js, including custom visualizations to deliver a more modern, consistent, and intuitive interface."
     ]
   }
 ]

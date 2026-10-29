@@ -1,29 +1,104 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import PROJECTS from "@/data/projects.json";
+import SKILLS from "@/data/skills.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = "https://www.tejasnasa.me";
+const SITE_NAME = "Tejas Nasa";
+const PERSON_ID = `${SITE_URL}/#person`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      name: SITE_NAME,
+      url: SITE_URL,
+      email: "tejasnasa1908@gmail.com",
+      image: `${SITE_URL}/resume-pfp.png`,
+      jobTitle: "Full Stack Developer",
+      sameAs: [
+        "https://github.com/tejasnasa",
+        "https://linkedin.com/in/tejasnasa",
+        "https://x.com/tejasnasa",
+      ],
+      knowsAbout: SKILLS,
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Maharaja Surajmal Institute of Technology",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: SITE_URL,
+      name: SITE_NAME,
+      inLanguage: "en",
+      publisher: { "@id": PERSON_ID },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: "Tejas Nasa - Full Stack Developer",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": PERSON_ID },
+      mainEntity: { "@id": PERSON_ID },
+      inLanguage: "en",
+    },
+    {
+      "@type": "ItemList",
+      name: "Projects",
+      itemListElement: PROJECTS.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          description: project.shortDesc,
+          codeRepository: project.github,
+          url: project.live ?? project.github,
+          keywords: project.stack.join(", "),
+          author: { "@id": PERSON_ID },
+        },
+      })),
+    },
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tejasnasa.me"),
+  metadataBase: new URL(SITE_URL),
   title: "Tejas Nasa - Full Stack Developer",
   description:
     "Full Stack Developer focused on backend systems and real-time architectures. Building Nimbus, Illume, and high-performance APIs.",
-  authors: [{ name: "Tejas Nasa" }],
-  creator: "Tejas Nasa",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     type: "website",
-    url: "https://tejasnasa.me",
+    locale: "en_US",
+    url: SITE_URL,
     title: "Tejas Nasa - Full Stack Developer",
     description:
       "Full Stack Developer focused on backend systems and real-time architectures.",
-    siteName: "Tejas Nasa",
+    siteName: SITE_NAME,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Tejas Nasa - Full Stack Developer",
+        type: "image/png",
       },
     ],
   },
@@ -33,9 +108,8 @@ export const metadata: Metadata = {
     description:
       "Full Stack Developer focused on backend systems and real-time architectures.",
     images: ["/og-image.png"],
-  },
-  alternates: {
-    canonical: "https://tejasnasa.me",
+    site: "@tejasnasa",
+    creator: "@tejasnasa",
   },
   robots: {
     index: true,
@@ -71,26 +145,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Tejas Nasa",
-              url: "https://tejasnasa.me",
-              email: "tejasnasa1908@gmail.com",
-              sameAs: [
-                "https://github.com/tejasnasa",
-                "https://linkedin.com/in/tejasnasa",
-              ],
-              jobTitle: "Full Stack Developer",
-              knowsAbout: [
-                "Node.js",
-                "TypeScript",
-                "Next.js",
-                "FastAPI",
-                "PostgreSQL",
-                "Redis",
-              ],
-            }),
+            __html: JSON.stringify(structuredData),
           }}
         />
       </body>
