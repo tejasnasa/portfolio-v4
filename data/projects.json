@@ -2,54 +2,53 @@
   {
     "title": "Illume",
     "tagline": "AI-Powered Codebase Onboarding Platform",
-    "shortDesc": "Topological learning engine and multi-source RAG pipeline for instantly understanding complex codebases.",
+    "shortDesc": "Codebase onboarding platform with a LangGraph agent over hybrid retrieval, an MCP server and a 3D dependency graph on web and mobile.",
     "stack": [
       "FastAPI",
       "Next.js",
-      "Postgres",
-      "SQLAlchemy",
-      "pgvector",
-      "Tree-sitter",
-      "Celery",
-      "React Native",
       "Expo",
-      "React Force Graph"
+      "Postgres",
+      "pgvector",
+      "Celery",
+      "Tree-sitter",
+      "LangGraph",
+      "MCP",
+      "Docker"
     ],
     "github": "https://github.com/tejasnasa/illume",
     "live": "https://illume.tejasnasa.me",
     "img": "/illume.webp",
     "features": [
-      "Engineered a topological learning engine using FastAPI and Tree-sitter, executing Kahn’s algorithm across parsed AST dependency graphs to generate customized codebase reading paths for 100 files.",
-      "Architected a multi-source RAG pipeline utilizing Celery, vectorizing 500+ Git commits, pull requests, and semantic code nodes into pgvector to answer deep architectural queries with traceable source citations.",
-      "Built the onboarding client as a Next.js 16 dashboard and a React Native app on Expo at feature parity, with a 3D dependency graph sized by lines of code and coloured by criticality tier, a file and symbol toggle, a reading-order tour, a bus-factor panel and live ingestion telemetry over WebSockets.",
-      "Deployed the backend to an Azure VM via a Docker + GitHub Actions CI/CD pipeline, with Nginx as a reverse proxy, handling SSL termination and WebSocket upgrades."
+      "Engineered the ingestion pipeline as a Celery task that parses a repo with Tree-sitter into a symbol-level import graph, mines git history for ownership and criticality, and generates a glossary, a Kahn's-ordered reading path and an architecture brief with an LLM, streaming each stage live over Redis pub/sub.",
+      "Designed a LangGraph agent fanning out parallel workers over 16 tools, on hybrid retrieval fusing 7 channels from 1,536-dimension pgvector embeddings to git co-change, with Cohere reranking and a Jev router.",
+      "Developed the client as a Next.js 16 dashboard and a React Native app on Expo at feature parity, with a 3D dependency graph sized by lines of code and coloured by criticality tier, a file and symbol toggle, a reading-order tour, RAG chat with line-linked citations and live ingestion telemetry over WebSockets.",
+      "Exposed the agent as an MCP server, built a DeepEval harness over 10 retrieval arms and 180 questions, and shipped through Docker and a CI-gated GitHub Actions deploy to Azure, covered by 4,000+ tests."
     ]
   },
   {
     "title": "Nimbus",
     "tagline": "Real Time Collaborative Workspace",
-    "shortDesc": "Monorepo-based workspace with real-time rich-text editing and infinite canvas collaboration.",
+    "shortDesc": "Monorepo-based workspace with real-time rich-text editing, canvas collaboration and a voice meeting agent on LiveKit.",
     "stack": [
       "Node.js",
       "Socket.io",
       "Redis",
       "Postgres",
-      "WebRTC",
       "Yjs",
       "Next.js",
       "Excalidraw",
       "Express",
       "Prisma",
-      "Turborepo"
+      "LiveKit"
     ],
     "github": "https://github.com/tejasnasa/nimbus",
     "live": "https://nimbus.tejasnasa.me",
     "img": "/canvas.webp",
     "features": [
-      "Architected a horizontally scalable WebSocket service using Node.js and Socket.io, integrating a Redis Pub/Sub adapter to concurrently handle multiple state broadcasts with low-latency delivery.",
-      "Implemented a CRDT engine with Yjs, resolving multi-client merges via incremental binary state updates and eliminating 90% of state-syncing conflicts across rich-text (Milkdown) and canvas (Excalidraw) surfaces.",
-      "Built an AI agent that turns prompts into Markdown documents and Excalidraw whiteboards, on a 4-provider LLM registry (OpenAI, Groq, DeepSeek, OpenRouter), streaming progress into the workspace.",
-      "Engineered a monorepo-based workspace in Next.js supporting 10+ concurrent editors, with native WebRTC voice rooms (self-hosted Coturn relay) and Better-Auth access control within a unified Turborepo pipeline."
+      "Architected the real-time layer on Node.js and Socket.io with a Redis Pub/Sub adapter that fans broadcasts out across instances, Yjs rich-text sync in Milkdown with debounced snapshots to Postgres, and manual WebSocket sync for Excalidraw guarded so a client that hasn't loaded yet cannot wipe the canvas.",
+      "Built a voice meeting agent on LiveKit that segments speech with Silero VAD into live captions in 20 languages, answers aloud only when named, and cuts playback once someone talks over it for 300 ms.",
+      "Built a chat agent on a 4-provider LLM registry that turns each meeting into notes, decisions and owner-assigned action items, answers @nimbus mentions from chat, documents and past meetings, and writes Markdown docs and Excalidraw diagrams from prompts or images, under a spend cap.",
+      "Engineered a Turborepo monorepo with BetterAuth roles re-checked on every socket event, covered by 3,400+ tests across Vitest and 37 Playwright end-to-end flows, with a nightly production smoke run."
     ]
   },
   {

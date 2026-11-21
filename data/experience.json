@@ -5,7 +5,7 @@
     "period": "Jun. 2026 – Sep. 2026",
     "location": "Remote",
     "logo": "/psync.png",
-    "stack": ["Astro", "FastAPI", "React.js", "Appwrite", "Tailwind CSS", "Tree-Sitter", "Redis", "Expo"],
+    "stack": ["Astro", "FastAPI", "React.js", "Appwrite", "Tailwind CSS", "Tree-sitter", "Redis", "Expo"],
     "bullets": [
       "Migrated the authentication system from a legacy JWT path to Appwrite’s session-cookie model, covering OAuth start, callback, redirect, error handling and popup re-authentication flow for sensitive operations.",
       "Created a repo-aware RAG pipeline for autonomous issue resolution: Tree-sitter chunking at function/class granularity, OpenAI embeddings stored in per-user Redis, and KNN-grounded LLM plans that reference real files/functions, with incremental re-indexing via a 6h drift ticker that re-embeds only changed files.",
